@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
 "scripts": {
-  "test": "jest"
+  "test": "jest",
+  "start": "node server.js"
 },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "jest": "^30.4.2"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
   }
 }

@@ -1,32 +1,32 @@
 name: Pipeline CI
 
-// Este pipeline se ejecuta cada vez que se hace un push a la rama main. 
+# Este pipeline se ejecuta cada vez que se hace un push a la rama main. 
 on:
   push:
     branches:
       - main
 
 jobs:
-  //Se encarga de ejecutar los tests y construir el proyecto.
+  # Se encarga de ejecutar los tests y construir el proyecto.
   test-and-build:
-    //Crea una máquina virtual con Ubuntu 
+    # Crea una máquina virtual con Ubuntu 
     runs-on: ubuntu-latest
 
     steps:
-      // Descarga el código del repo
+      # Descarga el código del repo
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
-      //Instala node en la MV (misma versión que se usa en el proyecto)
+      # Instala node en la MV (misma versión que se usa en el proyecto)
       - name: Instalar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      //Instala las dependencias del proyecto
+      # Instala las dependencias del proyecto
       - name: Instalar dependencias
         run: npm install
 
-      //Ejecuta los tests definidos en el proyecto
+      # Ejecuta los tests definidos en el proyecto
       - name: Ejecutar tests
         run: npm test

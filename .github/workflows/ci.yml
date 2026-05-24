@@ -30,3 +30,7 @@ jobs:
       # Ejecuta los tests definidos en el proyecto
       - name: Ejecutar tests
         run: npm test
+      
+      # Construye el proyecto
+      - name: Deploy en Render
+        run: curl URL_DEL_DEPLOY_HOOK

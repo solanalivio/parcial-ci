@@ -49,7 +49,7 @@ app.get('/', (req, res) => {
     </head>
     <body>
         <div class="container">
-            <h1><span class="dot"></span>Todo está funcionando correctamente</h1>
+            <h1><span class="dot"></span>Todo está OK </h1>
         </div>
     </body>
     </html>

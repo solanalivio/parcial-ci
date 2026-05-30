@@ -33,4 +33,25 @@ jobs:
       
       # Construye el proyecto
       - name: Deploy en Render
-        run: curl https://api.render.com/deploy/srv-d89f6rbbc2fs73f5oec0?key=OFXlhYbn5_8
+        run: curl "${{ secrets.RENDER_DEPLOY_HOOK }}"
+
+      # Notificación de éxito
+      - name: Notificar éxito en Slack
+        if: success()
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+          --data '{
+            "text":"✅ Pipeline exitoso"
+          }' \
+          "${{ secrets.SLACK_WEBHOOK_URL }}"
+  
+
+      # Notificación de error
+      - name: Notificar fallo en Slack
+        if: failure()
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+          --data '{
+            "text":"❌ Pipeline con fallo"
+          }' \
+          "${{ secrets.SLACK_WEBHOOK_URL }}"

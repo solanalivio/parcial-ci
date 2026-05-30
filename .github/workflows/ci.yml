@@ -41,7 +41,9 @@ jobs:
         run: |
           curl -X POST -H 'Content-type: application/json' \
           --data '{
-            "text":"✅ Pipeline exitoso"
+            "text":"✅ Pipeline exitoso",
+            "Usuario": ${{ github.actor }},
+            "Commit": ${{ github.event.head_commit.message }}
           }' \
           "${{ secrets.SLACK_WEBHOOK_URL }}"
   
@@ -53,5 +55,8 @@ jobs:
           curl -X POST -H 'Content-type: application/json' \
           --data '{
             "text":"❌ Pipeline con fallo"
+            "Usuario": ${{ github.actor }},
+            "Commit": ${{ github.event.head_commit.message }},
+            "Revisar": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           }' \
           "${{ secrets.SLACK_WEBHOOK_URL }}"

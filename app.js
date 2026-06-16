@@ -1,5 +1,3 @@
-const jeree='hola'
-
 function puedeEntrar(edad) {
     return edad >= 18;
 }

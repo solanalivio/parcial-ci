@@ -1,5 +1,5 @@
 function puedeEntrar(edad) {
-    return edad >= 28;
+    return edad >= 18;
 }
 
 module.exports = puedeEntrar;

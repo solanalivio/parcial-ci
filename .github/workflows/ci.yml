@@ -27,6 +27,10 @@ jobs:
       - name: Instalar dependencias
         run: npm install
 
+      # Ejecutar el linter
+      - name: Ejecutar linter
+        run: npm run lint
+
       # Ejecuta los tests definidos en el proyecto
       - name: Ejecutar tests
         run: npm test

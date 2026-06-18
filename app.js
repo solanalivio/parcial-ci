@@ -1,3 +1,5 @@
+const nombre = "Juan"
+
 function puedeEntrar(edad) {
     return edad >= 18;
 }
